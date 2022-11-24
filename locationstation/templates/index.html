@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>location station</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          Location Station
+        </a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <p>Get number of listings at outcode below</p>
+            <input type="text" class="form-control" id="outcode" placeholder="enter outcode ex M11">
+            <button type="button" class="btn btn-primary mb-2" id='outcode-button'>submit</button>
+          </div>
+          <div id="outcode-card" class="card" style="width: 100%;">
+            <div class="card-body">
+              <h5 id="outcode-card-title" class="card-title"></h5>
+              <p id="outcode-card-body" class="card-text"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <p>Get number of listings at outcode below along with outcodes nearby</p>
+            <input type="text" class="form-control" id="nexus-outcode" placeholder="enter outcode ex M11">
+            <button type="button" class="btn btn-primary mb-2" id="nexus-outcod-button">submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
