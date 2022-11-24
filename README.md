@@ -4,19 +4,19 @@
 ## prerequisite
 docker and docker-compose
 
-setup
-: clone the repo
+### setup
+1.clone the repo
     run command 
-        : docker-compose up
+        1. docker-compose up
     in a new bash script
         run command 
-            : docker-compose run locationstation python manage.py createsuperuser
+            1. docker-compose run locationstation python manage.py createsuperuser
     login into the admin area
-        : click on listings
-            : upload the listing file
+        1. click on listings
+        2. upload the listing file
 
-endpoints
-: api/outcodes/M1
+### endpoints
+1. api/outcodes/M1
     M1 for manchester
-: api/nexus/M1
+2. api/nexus/M1
     M1 for manchester
