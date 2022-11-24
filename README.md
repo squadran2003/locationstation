@@ -25,5 +25,5 @@ docker and docker-compose
     - upload the listing file
 
 ### endpoints
-1. api/outcodes/M1
-2. api/nexus/M1
+1. http://0.0.0.0/api/outcode/M1/
+2. http://0.0.0.0/api/nexus/M1
