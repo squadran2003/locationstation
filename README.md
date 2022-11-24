@@ -1,5 +1,5 @@
 # location Station
-*** A xml rest api that return listings and average price for a given outcode ***
+***A xml rest api that return listings and average price for a given outcode***
 
 ## prerequisite
 docker and docker-compose
@@ -17,6 +17,4 @@ docker and docker-compose
 
 ### endpoints
 1. api/outcodes/M1
-    M1 for manchester
 2. api/nexus/M1
-    M1 for manchester
