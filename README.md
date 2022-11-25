@@ -44,5 +44,5 @@ Change the below env varaibles
 4. DJANGO_SUPERUSER_PASSWORD="more secure password"
 5. DJANGO_SUPERUSER_EMAIL=example@example.com
 6. DJANGO_SUPERUSER_USERNAME=admin
-***change secret key to something more secure***
-1. SECRET_KEY = ''
+7. ***change secret key to something more secure***
+    - SECRET_KEY = ''
