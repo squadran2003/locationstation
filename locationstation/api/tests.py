@@ -4,6 +4,7 @@ from .models import Listing
 
 class TestApiView(TestCase):
     def setUp(self):
+        self.client = APIClient()
         Listing.objects.create(
             neighbourhood_group="Manchester",
             neighbourhood='Ardwick',
@@ -34,19 +35,15 @@ class TestApiView(TestCase):
         )
 
     def test_outcode_view(self):
-        """Animals that can speak are correctly identified"""
-        client = APIClient()
-        response = client.get('http://127.0.0.1:8000/api/outcode/M1/')
-        response2 = client.get('http://127.0.0.1:8000/api/outcode/DA1/')
+        response = self.client.get('http://127.0.0.1:8000/api/outcode/M1/')
+        response2 = self.client.get('http://127.0.0.1:8000/api/outcode/DA1/')
         self.assertEqual(26, response.data.get('average_daily_price'))
         self.assertEqual(4, response.data.get('listing_count'))
         self.assertEqual(404, response2.status_code)
     
     def test_nexus_outcode_view(self):
-        """Animals that can speak are correctly identified"""
-        client = APIClient()
-        response = client.get('http://127.0.0.1:8000/api/nexus/M1/')
-        response2 = client.get('http://127.0.0.1:8000/api/outcode/DA1/')
+        response = self.client.get('http://127.0.0.1:8000/api/nexus/M1/')
+        response2 = self.client.get('http://127.0.0.1:8000/api/outcode/DA1/')
         outcodes = response.data.get('outcodes')
         self.assertEqual(26, response.data.get('average_daily_price'))
         self.assertEqual(4, response.data.get('listing_count'))

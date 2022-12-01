@@ -26,18 +26,18 @@ class OutcodeView(APIView):
         response = requests.get(f"https://api.postcodes.io/outcodes/{outcode}")
         if response.status_code == 404:
             return Response([],status=status.HTTP_404_NOT_FOUND)
-        admin_districts = response.json().get('result').get('admin_district')
-        admin_wards = response.json().get('result').get('admin_ward')
+        data = response.json()
+        admin_districts = data.get('result').get('admin_district')
+        admin_wards = data.get('result').get('admin_ward')
         query = Listing.objects.filter(
             neighbourhood_group__in=admin_districts,
             neighbourhood__in=admin_wards,
 
-        )
-        query_agg = query.aggregate(Avg('price'),Count('price'))
+        ).aggregate(Avg('price'),Count('price'))
         # if not data avilable in listings for admin_districts return 404
-        if not query_agg.get('price__count'):
+        if not query.get('price__count'):
             return Response([],status=status.HTTP_404_NOT_FOUND)
-        serializer = OutCodeSerializer(query_agg)
+        serializer = OutCodeSerializer(query)
         return Response(serializer.data)
 
 
